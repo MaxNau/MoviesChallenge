@@ -5,20 +5,21 @@
 Configuration:
 
 There are settings you can set:
-    1. MoviesApiConfig. In this section you can set Movies API address and ApiKey
+    
+  1. MoviesApiConfig. In this section you can set Movies API address and ApiKey
     
     "MoviesApiConfig": {
         "Address": "https://movies-api",
         "ApiKey": "68e5fbda-9ec9-4858-97b2-4a8349764c63"
     }
 
-    2. RedisConfig. In this section you can set Redis address.
+  2. RedisConfig. In this section you can set Redis address.
 
     "RedisConfig": {
         "Address":  "cache"
     }
 
-    3. ReservationConfig. In this section you can set reservation expiration time (in minutes).
+  3. ReservationConfig. In this section you can set reservation expiration time (in minutes).
 
     "ReservationConfig": {
         "ExpirationTimeMinutes": "10"
