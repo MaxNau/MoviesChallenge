@@ -30,6 +30,7 @@ You can access Cinema API via http (http://localhost:32772) or https (https://lo
 ### Swagger Endpoins
 
 http://localhost:32772/index.html
+
 https://localhost:32773/index.html
 
 ### Features

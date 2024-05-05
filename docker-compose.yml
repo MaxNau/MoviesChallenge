@@ -1,0 +1,32 @@
+services:
+  movies-api:
+    image: ${DOCKER_REGISTRY-}movies-api    
+    build: 
+      context: .
+      dockerfile: MoviesApi.Dockerfile
+    ports:
+      - "7172:80"
+      - "7443:443"
+    environment:      
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=password
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/app/aspnetapp.pfx
+      - FailurePercentage=0
+  cache:
+    image: "redis"
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+  cinema-api:
+    container_name: cinema-api 
+    image: ${DOCKER_REGISTRY-}cinema-api  
+    build:
+      context: ApiApplication
+      dockerfile: Dockerfile
+    ports:
+      - "32772:80"
+      - "32773:443"
+    environment:      
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:443;http://+:80

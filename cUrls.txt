@@ -1,2 +1,37 @@
 Please add the cURLs of your tests here:
 
+Showtimes
+
+curl -X 'POST' \
+  'http://localhost:32773/api/v1/Showtimes' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "movie": {
+    "imdbId": "tt0468569"
+  },
+  "sessionDate": "2024-03-26T15:32:19.392Z",
+  "auditoriumId": 1
+}'
+
+Reservations
+
+curl -X 'POST' \
+  'http://localhost:32773/api/v1/Reservation/Create' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "showtimeId": 1,
+  "seats": [
+    {
+      "row": 1,
+      "seatNumber": 1
+    }
+  ]
+}'
+
+curl -X 'POST' \
+  'http://localhost:32773/api/v1/Reservation/Confirm' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '"35e9fc08-383d-4fe6-bc49-e12133b5fd64"'

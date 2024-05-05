@@ -1,0 +1,16 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "composeLaunchAction": "LaunchBrowser",
+      "composeLaunchServiceName": "cinema-api",
+      "composeLaunchUrl": "{Scheme}://localhost:{ServicePort}",
+      "serviceActions": {
+        "cinema-api": "StartDebugging",
+        "cache": "StartWithoutDebugging",
+        "movies-api": "StartWithoutDebugging"
+      }
+    }
+  }
+}

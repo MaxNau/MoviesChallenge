@@ -47,7 +47,7 @@ namespace ApiApplication.Database.Repositories
                 .ToListAsync(cancel);
         }
 
-        public async Task<ShowtimeEntity> CreateShowtime(ShowtimeEntity showtimeEntity, CancellationToken cancel)
+        public async Task<ShowtimeEntity> CreateShowtimeAsync(ShowtimeEntity showtimeEntity, CancellationToken cancel)
         {
             var showtime = await _context.Showtimes.AddAsync(showtimeEntity, cancel);
             await _context.SaveChangesAsync(cancel);

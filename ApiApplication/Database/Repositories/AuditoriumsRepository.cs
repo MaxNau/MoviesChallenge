@@ -21,5 +21,16 @@ namespace ApiApplication.Database.Repositories
                 .Include(x => x.Seats)
                 .FirstOrDefaultAsync(x => x.Id == auditoriumId, cancel);
         }
+
+        public async Task<bool> ExistsAsync(int auditoriumId, CancellationToken cancel)
+        {
+            return await _context.Auditoriums.AnyAsync(x => x.Id == auditoriumId, cancel);
+        }
+
+        public async Task<bool> IsSeatExistsAsync(int auditoriumId, short row, short seatNumber, CancellationToken cancel)
+        {
+            return await _context.Seats.AnyAsync(x => x.AuditoriumId == auditoriumId &&
+                x.Row == row && x.SeatNumber == seatNumber, cancel);
+        }
     }
 }
